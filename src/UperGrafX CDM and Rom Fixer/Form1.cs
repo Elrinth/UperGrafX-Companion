@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -187,11 +188,29 @@ namespace Convert_CCD_to_CDM
             var totalHeaderCleared = 0;
             var totalRegionFixed = 0;
             var filesErrorWriting = 0;
+            var romsWithTooLargeFilesize = 0;
+            var problematicFiles = new List<string>();
             foreach (string file in allfiles)
             {
                 bool madeAnyAdjustment = false;
                 long length = new System.IO.FileInfo(file).Length;
                 var bytesToSkip = 0;
+                if (length > 0x100000)
+                {
+                    textBox2.Invoke((MethodInvoker)delegate ()
+                    {
+                        textBox2.AppendText(file + " is way too big (" + length + "Byte), this game will not be accepted with the UperGrafX!\r\n");
+                    });
+                    problematicFiles.Add(file + " is way too big (" + length + "Byte), this game will not be accepted with the UperGrafX!\r\n");
+                }
+                else if (length > 524288)
+                {
+                    textBox2.Invoke((MethodInvoker)delegate ()
+                    {
+                        textBox2.AppendText(file + " is too big (" + length + "Byte > 512KiB), this game will not work with the UperGrafX!\r\n");
+                    });
+                    problematicFiles.Add(file + " is too big (" + length + "Byte > 512KiB), this game will not work with the UperGrafX!\r\n");
+                }
                 if (length % 0x2000 != 0)
                 {
                     textBox2.Invoke((MethodInvoker)delegate ()
@@ -278,12 +297,16 @@ namespace Convert_CCD_to_CDM
                     textBox2.AppendText(totalRegionFixed + " region fixes were done.\r\n");
                     textBox2.AppendText(totalHeaderCleared + " headers were fixed.\r\n");
                 }
+                if (problematicFiles.Count != 0)
+                {
+                    textBox2.AppendText(problematicFiles.Count + " .pce-files has too large filesize and won't work on the UperGrafX!\r\n");
+                }
                 
                 if (filesErrorWriting != 0)
                 {
                     textBox2.AppendText("WARNING: " + filesErrorWriting + " files could not be written, check log above!\r\n");
                 } 
-                else
+                else if (problematicFiles.Count == 0)
                 {
                     textBox2.AppendText("Your library of .pce files are ready to be transferred to the UperGrafX!\r\n");
                 }
