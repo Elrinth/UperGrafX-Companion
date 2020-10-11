@@ -1,15 +1,14 @@
-# UperGrafX-Companion
+# UperGrafX Companion
 
 UperGrafX is a HDMI solution with cd image and .pce rom loading for the
 Pc-Engine. You can find more information about the unit at the webpage here:
 http://www.upergrafx.com/home_en
 
-Functions / Features of this program:
+Functions / Features of UperGrafX Companion:
 
 - Allows you to fix your library of .pce-files to work with the UperGrafX.
 
-- The program will notify you that the UperGrafX won't work with .pce-files
-  larger than 512KiB (ram restrictions in the hardware design).
+- Will notify you which of your .pce-files the UperGrafX won't work with (files larger than 512KiB won't work because of ram restrictions in the hardware design).
 
 - Allows you to convert .ccd-cdimages to .cdm-cdimages which work with
   UperGrafX.
