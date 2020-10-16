@@ -7,8 +7,9 @@ http://www.upergrafx.com/home_en
 Functions / Features of UperGrafX Companion:
 
 - Allows you to fix your library of .pce-files to work with the UperGrafX.
-
 - Will notify you which of your .pce-files the UperGrafX won't work with (files larger than 512KiB won't work because of ram restrictions in the hardware design).
+- Trim header of pce files to work with UperGrafX
+- Convert region from J -> U or U -> J to work with your system.
 
 - Allows you to convert .ccd-cdimages to .cdm-cdimages which work with
   UperGrafX.
