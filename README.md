@@ -16,7 +16,7 @@ Functions / Features of UperGrafX Companion:
 
 - If you have daemon tools installed, this program can now convert .bin/.cue cd
   images to .cdm/.cue - This is a long progress and uses a modified version of
-  the external program CD Manipulator.
+  the external program CD Manipulator. (https://github.com/Elrinth/CD-Manipulator)
 
 - Can fire up / Focus "UperGrafx control panel" directly from the program.
 
