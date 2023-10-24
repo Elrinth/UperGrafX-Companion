@@ -2,7 +2,7 @@
 
 UperGrafX is a HDMI solution with cd image and .pce rom loading for the
 Pc-Engine. You can find more information about the unit at the webpage here:
-http://www.upergrafx.com/home_en
+http://www.upergrafx.com/home_en (this page is dead as of 2023, however the howto page is still up here: https://howtouse.upergrafx.com/)
 
 Functions / Features of UperGrafX Companion:
 
